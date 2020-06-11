@@ -1,0 +1,12 @@
+name: extended_future_builder
+description: A FutureBuilder with some cool options
+version: 0.0.1
+author: Gabriel Alves Silva <gabriel.silva.bh@outlook.com>
+homepage: https://github.com/ynixt/extended_future_builder
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
