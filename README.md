@@ -5,6 +5,8 @@ A FutureBuilder with some cool options
 - Tap to retry the future on case of error
 - builders for future loading, error and success
 
+## Parameters
+
 | parameter             | description                                                                                   | default                                     |
 |-----------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------|
 | futureResponseBuilder | Builder responsible for return the future. Used on initState and on retry.                    | required                                    |
@@ -16,6 +18,8 @@ A FutureBuilder with some cool options
 | ftrThen               | Callback for Future success.                                                                  |                                             |
 | ftrCatch              | Callback for Future error.                                                                    |                                             |
 | allowRetry            | Indicates if user can tap on widget of error for build a new Future and try again.            | true                                        |
+
+## Example
 
 ```dart
 ExtendedFutureBuilder<User>(
