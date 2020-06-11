@@ -1,5 +1,5 @@
 name: extended_future_builder
-description: A FutureBuilder with some cool options
+description: A FutureBuilder with retry and separated builders for success, loading, empty and error situations.
 version: 0.0.2
 homepage: https://github.com/ynixt/extended_future_builder
 
@@ -12,3 +12,5 @@ dependencies:
 
 dev_dependencies:
   pedantic: ^1.0.0
+
+flutter:
