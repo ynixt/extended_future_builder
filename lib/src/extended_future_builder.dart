@@ -95,7 +95,7 @@ class _ExtendedFutureBuilderState<T> extends State<ExtendedFutureBuilder<T>> {
 
   @override
   void initState() {
-    _future = this.widget.futureResponseBuilder();
+    _future = widget.futureResponseBuilder();
     _registerCallbacks(_future);
     _globalKey = GlobalKey();
 
@@ -108,34 +108,34 @@ class _ExtendedFutureBuilderState<T> extends State<ExtendedFutureBuilder<T>> {
       key: _globalKey,
       future: _future,
       builder: (context, snapshot) {
-        if (snapshot.hasError && this.widget.errorBuilder != null) {
-          if (this.widget.allowRetry) {
+        if (snapshot.hasError && widget.errorBuilder != null) {
+          if (widget.allowRetry) {
             return InkWell(
-              child: this.widget.errorBuilder(context, snapshot.error),
+              child: widget.errorBuilder(context, snapshot.error),
               onTap: () {
                 setState(() {
-                  _future = this.widget.futureResponseBuilder();
+                  _future = widget.futureResponseBuilder();
                   _registerCallbacks(_future);
                   _globalKey = GlobalKey();
                 });
               },
             );
           } else {
-            return this.widget.errorBuilder(context, snapshot.error);
+            return widget.errorBuilder(context, snapshot.error);
           }
         }
 
         if (snapshot.hasData) {
-          return this.widget.successBuilder(context, snapshot.data);
+          return widget.successBuilder(context, snapshot.data);
         }
 
         if (!snapshot.hasData) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return this.widget.loadingBuilder(context);
+            return widget.loadingBuilder(context);
           }
 
-          if (this.widget.emptyBuilder != null) {
-            return this.widget.emptyBuilder(context);
+          if (widget.emptyBuilder != null) {
+            return widget.emptyBuilder(context);
           }
         }
 
@@ -145,22 +145,22 @@ class _ExtendedFutureBuilderState<T> extends State<ExtendedFutureBuilder<T>> {
   }
 
   void _registerCallbacks(Future future) {
-    if (this.widget.ftrStarted != null) {
-      this.widget.ftrStarted();
+    if (widget.ftrStarted != null) {
+      widget.ftrStarted();
     }
 
-    if (this.widget.ftrThen != null) {
+    if (widget.ftrThen != null) {
       future.then((value) {
-        if (this.widget.ftrThen != null && mounted) {
-          this.widget.ftrThen(value);
+        if (widget.ftrThen != null && mounted) {
+          widget.ftrThen(value);
         }
       });
     }
 
-    if (this.widget.ftrCatch != null) {
+    if (widget.ftrCatch != null) {
       future.catchError((err) {
-        if (this.widget.ftrCatch != null && mounted) {
-          this.widget.ftrCatch(err);
+        if (widget.ftrCatch != null && mounted) {
+          widget.ftrCatch(err);
         }
       });
     }
