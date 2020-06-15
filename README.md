@@ -5,6 +5,10 @@ A FutureBuilder with some cool options
 - Tap to retry the future on case of error
 - builders for future loading, error and success
 
+## Why
+
+After using Future Builder a lot for http requests, I realized that it was possible to simplify the necessary work a little. Thus was born this library, where there is a separation of the builder functions in: success, loading, emptiness and error. It is also possible, in case of Future error, to click on the widget to try to load Future again, which is very useful in http requests that may have failed due to user's Internet related problems.
+
 ## Parameters
 
 | parameter             | description                                                                                   | default                                     |
