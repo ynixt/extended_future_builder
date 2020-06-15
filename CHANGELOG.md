@@ -9,3 +9,7 @@
 ## [0.1.0]
 
 * Add example
+
+## [0.1.1]
+
+* Improve readme
